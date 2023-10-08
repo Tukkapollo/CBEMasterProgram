@@ -1,0 +1,28 @@
+FROM python:3.7.3-alpine3.9
+
+RUN apk update && apk add --no-cache \
+    libffi-dev \
+    libressl-dev \
+    libxml2-dev \
+    libxslt-dev \
+    libjpeg-turbo-dev \
+    zlib-dev \
+    gfortran \
+    musl-dev \
+    linux-headers \
+    build-base \
+    freetype-dev \
+    libpng-dev \
+    openblas-dev \
+    libffi-dev
+
+RUN mkdir -p /app
+WORKDIR /app
+
+COPY ./src/requirements.txt /app/requirements.txt
+RUN pip install -r requirements.txt
+
+COPY ./src/ /app/
+ENV FLASK_APP=neuralapi.py
+
+CMD flask run -h 0.0.0.0 -p 8080

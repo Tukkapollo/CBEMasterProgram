@@ -1,0 +1,9 @@
+version: "3.4"
+services:
+    python:
+        build:
+            context: .
+        container_name: python
+        image: testimage:1.0
+        ports:
+        - 8080:8080

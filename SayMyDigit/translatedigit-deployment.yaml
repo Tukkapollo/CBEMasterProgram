@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: translatedigit-deploy
+  labels:
+    app: translatedigit-app
+spec:
+  selector:
+    matchLabels:
+      app: translatedigit-app
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: translatedigit-app
+    spec:
+      containers:
+        - name: translatedigit-app
+          image: translatedigit:1.0
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5000

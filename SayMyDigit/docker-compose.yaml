@@ -1,0 +1,34 @@
+version: "3.4"
+services:
+    digittotext:
+        build:
+            context: .
+            dockerfile: dockerfileDigitToText
+        container_name: containerdigittotext
+        image: digittotext:1.0
+        ports:
+        - 8080:8080
+    translatedigit:
+        build:
+            context: .
+            dockerfile: dockerfileTranslateDigit
+        container_name: containertranslatedigit
+        image: translatedigit:1.0
+        ports:
+        - 8080:8080
+    vision:
+        build:
+            context: .
+            dockerfile: dockerfileVision
+        container_name: containervision
+        image: vision:1.0
+        ports:
+        - 8080:8080
+    talk:
+        build:
+            context: .
+            dockerfile: dockerfileTalk
+        container_name: containertalk
+        image: talk:1.0
+        ports:
+        - 8080:8080

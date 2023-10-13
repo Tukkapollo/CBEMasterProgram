@@ -1,0 +1,12 @@
+FROM python:3.8-slim-buster
+
+RUN mkdir -p /app
+WORKDIR /app
+
+COPY ./srcVision/requirements.txt /app/requirements.txt
+RUN pip install -r requirements.txt
+
+COPY ./srcVision/ /app/
+ENV FLASK_APP=Vision.py
+
+CMD flask run -h 0.0.0.0 -p 8080

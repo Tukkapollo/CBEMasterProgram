@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vision-deploy
+  labels:
+    app: vision-app
+spec:
+  selector:
+    matchLabels:
+      app: vision-app
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: vision-app
+    spec:
+      containers:
+        - name: vision-app
+          image: vision:1.0
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5000

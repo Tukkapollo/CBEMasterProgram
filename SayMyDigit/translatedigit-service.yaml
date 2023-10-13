@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: translatedigit-service
+  labels:
+    app: translatedigit-app
+spec:
+  selector:
+    app: translatedigit-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080

@@ -8,7 +8,7 @@ spec:
   selector:
     matchLabels:
       app: digittotext-app
-  replicas: 2
+  replicas: 1
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: digittotext-app
-          image: digittotext:1.0
+          image: tukkapollo/digittotext:1.0
           imagePullPolicy: Always
           ports:
             - containerPort: 5000

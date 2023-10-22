@@ -1,6 +1,7 @@
-from flask import Flask, request, send_file
+from flask import Flask, request, send_file, Response
 from gtts import gTTS
 import os
+import io
 
 app = Flask(__name__)
 
@@ -9,6 +10,9 @@ def talk():
 	digit=request.form['digit']
 	language=request.form['language']
 	myobj = gTTS(text=digit, lang=language, slow=False)
-	myobj.save("C:\\temp\\talk.mp3")
-	mp3_file="C:\\temp\\talk.mp3"
-	return send_file(mp3_file,as_attachment=True)
+	myobj.save("/app/talk.mp3")
+	#mp3_file="talk.mp3"
+	mp3_buffer = io.BytesIO()
+	myobj.write_to_fp(mp3_buffer)
+	
+	return Response(mp3_buffer.getvalue(), content_type="audio/mpeg")

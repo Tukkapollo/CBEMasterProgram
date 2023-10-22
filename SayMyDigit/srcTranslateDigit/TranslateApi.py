@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, Response
 from googletrans import Translator
 import json
 import requests
@@ -10,16 +10,16 @@ def hello():
 	digit=request.form['digit']
 	language=request.form['language']
 	result= Translate(digit,language)
-	
-	url = "http://talk-service:8080/talk"
+	returnable=""
+	url = "http://talk-service:80/talk"
 	form_data = {
     "digit": result,
     "language": language
 	}
-	
 	response = requests.post(url, data=form_data)
 	
-	#return {"result": response}
+	
+	return Response(response.content, content_type="audio/mpeg")
 	
 def Translate(digit,language):
 	translator = Translator()

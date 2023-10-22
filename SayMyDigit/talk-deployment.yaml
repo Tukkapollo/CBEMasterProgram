@@ -8,7 +8,7 @@ spec:
   selector:
     matchLabels:
       app: talk-app
-  replicas: 2
+  replicas: 1
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: talk-app
-          image: talk:1.0
+          image: tukkapollo/talk:1.0
           imagePullPolicy: Always
           ports:
             - containerPort: 5000

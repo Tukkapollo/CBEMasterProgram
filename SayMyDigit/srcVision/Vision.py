@@ -1,7 +1,7 @@
 import numpy as np
 import mnist
 from PIL import Image
-from flask import Flask, request
+from flask import Flask, request, Response
 import requests
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Conv2D, MaxPooling2D, Dense, Flatten
@@ -10,10 +10,10 @@ from tensorflow.keras.optimizers import SGD
 
 app = Flask(__name__)
 
-train_images = mnist.train_images()[:10000]
-train_labels = mnist.train_labels()[:10000]
-test_images = mnist.test_images()[:10000]
-test_labels = mnist.test_labels()[:10000]
+train_images = mnist.train_images()[:1000]
+train_labels = mnist.train_labels()[:1000]
+test_images = mnist.test_images()[:1000]
+test_labels = mnist.test_labels()[:1000]
 
 train_images = (train_images / 255) - 0.5
 test_images = (test_images / 255) - 0.5
@@ -49,13 +49,16 @@ def handle_image():
 	test_image = (test_image / 255) - 0.5
 	predictions = model.predict(np.expand_dims(test_image, axis=0))
 	predicted_class = np.argmax(predictions)
-	
-	url = "http://digittotext-service:8080/numberToString"
+	url = "http://digittotext-service:80/numberToString"
 	form_data = {
     "digit": str(predicted_class),
     "language": language
 	}
-	
+	returnable=""
 	response = requests.post(url, data=form_data)
-	
-	#return {"result":str(predicted_class)}
+	if response.status_code == 200:
+		returnable=response.text
+	else:
+		returnable="error in digit"
+		
+	return Response(response.content, content_type="audio/mpeg")

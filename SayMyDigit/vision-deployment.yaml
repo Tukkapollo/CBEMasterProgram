@@ -8,7 +8,7 @@ spec:
   selector:
     matchLabels:
       app: vision-app
-  replicas: 2
+  replicas: 1
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: vision-app
-          image: vision:1.0
+          image: tukkapollo/vision:1.0
           imagePullPolicy: Always
           ports:
             - containerPort: 5000

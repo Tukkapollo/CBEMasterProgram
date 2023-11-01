@@ -15,10 +15,31 @@ Pod
 	-each pod gets ip address
 	
 service:
+	-facilitates communication in a cluster
 	-permanent IP address
 		-benefit: pod always gets the same IP
 	-can be external or internal
 		-external reachable from outside k8s
+	types
+		-ClusterIP
+			-default
+			-forward communication based on selector attributes. 
+			 pods have same values and attributes in deployment.yaml
+			-targetPort will be contacted, pod must be listening there
+		-Headless
+			-usefull with stateful applications
+			-activate using type:clusterIP:none
+			-communicate directly with individual pods
+		-NodePort
+			-Can connect from the outside to specific port
+			-activate using type:NodePort
+			-in ports set nodePort: 30000-32000
+			-bad dont use
+		-LoadBalancer
+			-Extension of NodePort
+			-Uses cloud providers own implementations of load balancing and NodePort
+			-activate using type:LoadBalancer
+			-in ports set nodePort: 30000-32000
 		
 ingress:
 	-makes service address more production viable. (https and no port)
@@ -39,3 +60,85 @@ Volumes
 -StatefulSet
 	-Alternative to deployment, used for databases etc. so that all pods have access to the same data
 	-Can instead use deployments and read external database. Note; not pure microservice
+	
+Worker node needs:
+	-kubelet
+	-kube proxy
+	-container runtime
+	-minikube does 2 first automatically
+	
+Master node
+	-APi server - "cluster gateway"
+	
+	
+Some commands:
+	-Create pod: kubectl create deployment nginx-depl(just name) --image=nginx (docker)
+	-kubectl get pod/node/replicaset...
+	-kubectl edit deployment nginx-depl
+	-kubectl logs nginx-depl-4214214-asfd32
+	-kubectl describe pod nginx-depl
+	-Open pod terminal: kubectl exec -it nginx-depl-4214214-asfd32 --bin/bash
+	-kubectl delete deployment nginx-depl
+	-practical deployment: kubectl apply -f nginx-deployment.yaml
+		-can be used to update existing, just slam it again
+	
+YAML syntax:
+	-metadata
+	-specification
+		-contains specification for whole deployment And specifications for each pod
+			-key points
+				-replicas, how many similiar deployments are made
+				-selector: matchLabels: app: Name. deployment know which items belong to this deplomynt
+				 very critical, used with pods, service etc
+		-pod config
+			-containers
+				-name
+				-image
+				-port settings, containerPort should be targetPort of service.yaml
+		-to make external service, add type: LoadBalancer
+			-also add nodePort: to ports (30000-32767?). this port is accessed through browser
+	-status
+		-automatic by kubernetes
+		-compare config to what is deployed and automatically fix it
+	
+	-ingress yaml
+		-rules: host: myapp.com is the address that can be used to access:
+			http:paths:-backend:servicename:my-app-internalservice
+		-nodePort and loadbalancer not needed in service.yaml
+			-serviceport=service:port
+		-apply yaml normally
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

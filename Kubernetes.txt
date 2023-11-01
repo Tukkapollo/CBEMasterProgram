@@ -1,0 +1,41 @@
+What is:
+Container management tool. Can handle large number or containers in a more manageable way.
+Useful when working with containerized microservices.
+
+Benefits:
+High availability
+Scalability
+Disaster recovery
+
+Structure:
+Node{
+Pod
+	-smallest unit
+	-usually 1 application
+	-each pod gets ip address
+	
+service:
+	-permanent IP address
+		-benefit: pod always gets the same IP
+	-can be external or internal
+		-external reachable from outside k8s
+		
+ingress:
+	-makes service address more production viable. (https and no port)
+	
+ConfigMAp:
+	-essentially ini-file for pods. use it with -configMapRef in pod yaml
+	
+Secret:
+	-store credentials etc. that are bae64 encoded
+}
+Information is lost like this, upon closure of node. To remedy the situation:
+Volumes
+	-Data generated and used in k8s cluseter must be saved outside of the cluster for storing.
+	
+-Replicas
+	-Work as a load balancer
+
+-StatefulSet
+	-Alternative to deployment, used for databases etc. so that all pods have access to the same data
+	-Can instead use deployments and read external database. Note; not pure microservice

@@ -1,0 +1,13 @@
+Stuff to write about
+CI/CD pipelines
+EC2 image builder pipelines
+
+
+
+
+
+
+Consider for architecture
+-After project completion, use analyze tools to gather suggestions for optimization
+-Compute instance type if EC2
+-Choose latest for best performance to cost

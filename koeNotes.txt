@@ -1,0 +1,91 @@
+Different architectures selecting
+	-important to consider skillset in house, in you
+	-important to consider system strenghts and weaknesses, cpu, file sys, networks..
+
+Domain driven
+	-microservices lends itself nicely
+	-experts with field knowlledge to create each part in a larger software.
+		shop expert makes shop software, delivery extperts make delivery software etc
+
+N-Tier
+	-1-tier is just and app that has all the requiremed. Still viable
+	-2-tier server-client
+	-3-tier UI,business logic,data tiers. 
+		-layers are different, can be in multiple tiers
+		-Vertical slices
+		-Hardware is what it is adn makes it more difficult to scale
+	::Clean
+		-testable
+		-domain focused
+		-bad: somewhat complicated so not worth for small things. wärtsilä
+		-bad: learning curve
+		
+	::Vertical slice
+		-Every action is a feature that goes from the UI tier to DB tier
+		-isolated, dont break anything else if you mess up
+		-bad: dublication, complex, hard to test
+	-SCALE UP
+		-extra power to servers
+	-SCALE OUT
+		-add more servers to handle different workload
+Layer
+
+SOA
+
+Microservices
+	-api calls take time
+	-scalable
+	-difficult to maintain and develop
+	-network requirements
+	-poorly made oftern turns into Distributed monolith= connections where there shouldnt be
+	-testability hard so quality might suffer
+	-split nature brings benefits like increased security
+	HAVE A REALLY GOOD REASON
+		-scalability
+		-independent deployability
+		-isolated
+
+Monolith
+
+Cloud
+	-Expensive
+	-Allows you to not worry about processing power, hosting etc... theoretically
+	-Good availability uptime
+	-scales well for xmas
+	-Brings new work in "cloud bill optimization"
+	
+
+Hardware important
+
+Business needs drive software needs
+	-Value is king
+	-Human interactions - do we have skills needed
+	-important to translate business requirements into software
+	
+Quality
+	-static
+		invisible to user.
+		How maintainable, testable, modular the architecture is
+	-dynamic
+		how well does the software work from a user pov
+		slowness,crashes,scalability,availability
+		
+	faults like exception handling shouldnt lead to failures
+	
+	reusability of hardware and software
+	
+	security
+	
+	Supportability when something does not work correctly
+	
+	usability, can users leverage all the features
+	
+	portability(from windows to linux,vmware to vbox)
+	
+	integrality between other software
+	
+	modifiability, can you add features or make changes
+	
+	business quality
+		-cost and schedule
+		-marketability

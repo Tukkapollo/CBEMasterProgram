@@ -4,8 +4,9 @@ import { LoginFormComponent, ResetPasswordFormComponent, CreateAccountFormCompon
 import { AuthGuardService } from './shared/services';
 import { HomeComponent } from './pages/home/home.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { BookkeepingAccountsComponent } from './pages/bookkeepingaccounts/bookkeepingaccounts.component';
 import { TasksComponent } from './pages/tasks/tasks.component';
-import { DxDataGridModule, DxFormModule } from 'devextreme-angular';
+import { DxDataGridModule, DxFormModule, DxButtonModule ,DxSelectBoxModule} from 'devextreme-angular';
 
 const routes: Routes = [
   {
@@ -16,6 +17,11 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent,
+    canActivate: [ AuthGuardService ]
+  },
+  {
+    path: 'bookkeepingaccounts',
+    component: BookkeepingAccountsComponent,
     canActivate: [ AuthGuardService ]
   },
   {
@@ -50,13 +56,14 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: true }), DxDataGridModule, DxFormModule],
+  imports: [RouterModule.forRoot(routes, { useHash: true }), DxDataGridModule, DxFormModule,DxButtonModule,DxSelectBoxModule],
   providers: [AuthGuardService],
   exports: [RouterModule],
   declarations: [
     HomeComponent,
     ProfileComponent,
-    TasksComponent
+    TasksComponent,
+    BookkeepingAccountsComponent
   ]
 })
 export class AppRoutingModule { }

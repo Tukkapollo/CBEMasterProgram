@@ -1,0 +1,74 @@
+<div class="content-wrapper">
+  <!-- Left Section (Form & Grid) -->
+  <div class="form-section">
+    <div class="content-block dx-card responsive-paddings">
+      <dx-form id="form1"
+        [formData]="employee"
+        labelLocation="top"
+        [colCountByScreen]="colCountByScreen"
+      >
+        <dxi-item dataField="Number"></dxi-item>
+        <dxi-item dataField="Description"></dxi-item>
+        <dxi-item dataField="Group"></dxi-item>
+        <dxi-item dataField="VAT_Percent" [label]="{ text: 'VAT %' }"></dxi-item>
+        <dxi-item dataField="Creation_date"></dxi-item>
+        <dxi-item dataField="Last_modified"></dxi-item>
+        <dxi-item dataField="Cent_rounding"></dxi-item>
+      </dx-form>
+    </div>
+
+    <div class="content-block dx-card responsive-paddings grid-container">
+      <h3>Tax Classes</h3>
+      <dx-data-grid 
+        [dataSource]="items"
+        [showBorders]="true"
+        [columnAutoWidth]="true"
+        [allowColumnResizing]="true"
+      >
+        <dxi-column dataField="id" caption="Number" [width]="100"></dxi-column>
+        <dxi-column dataField="description" caption="Description"></dxi-column>
+      </dx-data-grid>
+
+      <dx-select-box
+        [dataSource]="dropdownItems"
+        displayExpr="name"
+        valueExpr="id"
+        placeholder="Any part of field"
+      ></dx-select-box>
+
+      <!-- Pagination & Navigation Buttons (Now under the Grid) -->
+      <div class="pagination-buttons">
+        <button class="winpos-button winpos-default" (click)="onFirstPage()">First</button>
+        <button class="winpos-button winpos-default" (click)="onPreviousPage()">Previous</button>
+        <button class="winpos-button winpos-default" (click)="onNextPage()">Next</button>
+        <button class="winpos-button winpos-default" (click)="onLastPage()">Last</button>
+        <button class="winpos-button winpos-success" (click)="onExportData()">Export</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right Section (Other Actions) -->
+  <div class="button-section">
+    <div class="content-block dx-card responsive-paddings">
+      <h3>Quick Actions</h3>
+      <div class="button-group">
+        <button class="winpos-button winpos-success" (click)="onSubmit3()">Sales account</button>
+        <button class="winpos-button winpos-success" (click)="onSubmit4()">Cashier</button>
+        <button class="winpos-button winpos-success" (click)="onSubmit5()">Group</button>
+        <button class="winpos-button winpos-success" (click)="onSubmit6()">Price list</button>
+        <button class="winpos-button winpos-success" (click)="onSubmit7()">Fast adjustments</button>
+      </div>
+    </div>
+
+    <div class="content-block dx-card responsive-paddings">
+      <h3>Record Actions</h3>
+      <div class="button-group">
+        <button class="winpos-button winpos-default" (click)="onNew()">New</button>
+        <button class="winpos-button winpos-default" (click)="onSearch()">Search</button>
+        <button class="winpos-button winpos-success" (click)="onSave()">Save</button>
+        <button class="winpos-button winpos-danger" (click)="onUndo()">Undo</button>
+        <button class="winpos-button winpos-danger" (click)="onDelete()">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

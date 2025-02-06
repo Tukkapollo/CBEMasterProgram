@@ -1,0 +1,110 @@
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0; /* Light gray background for the page */
+  color: #333; /* Dark text for better readability */
+}
+
+.content-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 0.8fr;
+  gap: 20px;
+  padding: 20px;
+}
+
+.form-section, .button-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.content-block {
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background: #ffffff; /* White background for the cards */
+}
+
+h3 {
+  margin-bottom: 10px;
+  color: #2c2c2c; /* Dark color for section headers */
+}
+
+/* WinPOS Color Palette */
+.winpos-button {
+  background-color: #1f4e79; /* Deep blue for primary buttons */
+  color: #ffffff; /* White text */
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  margin: 5px; /* Add margin between buttons */
+}
+
+.winpos-button:hover {
+  background-color: #163a58; /* Darker blue on hover */
+}
+
+.winpos-success {
+  background-color: #28a745; /* Green for success actions */
+}
+
+.winpos-danger {
+  background-color: #dc3545; /* Red for danger actions */
+}
+
+.winpos-default {
+  background-color: #6c757d; /* Default gray for secondary actions */
+}
+
+.winpos-button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px; /* Increased gap between button groups */
+}
+
+/* Pagination buttons */
+.pagination-buttons {
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.pagination-buttons .winpos-button {
+  min-width: 120px;
+}
+
+/* Styling for Select Box */
+dx-select-box {
+  width: 100%;
+  margin-top: 15px;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+/* Data Grid */
+dx-data-grid {
+  background-color: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #ddd; /* Subtle border around grid */
+}
+
+dxi-column {
+  color: #2c2c2c; /* Dark text color for grid */
+}
+
+/* Card Shadows */
+.content-block.dx-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Card Header Styling */
+.content-block h3 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #1f4e79; /* Deep blue for titles */
+}

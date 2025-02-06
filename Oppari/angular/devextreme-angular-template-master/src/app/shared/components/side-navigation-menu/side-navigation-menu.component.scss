@@ -55,7 +55,11 @@
   
         &[aria-level='2'] .dx-treeview-item-content {
           font-weight: normal;
-          padding: 0 $side-panel-min-width;
+          padding-left: 58px;
+          text-align: left; // Center the text
+          display: flex;
+          justify-content: flex-start; // Center the content horizontally
+          align-items: center;
         }
       }
       // ##

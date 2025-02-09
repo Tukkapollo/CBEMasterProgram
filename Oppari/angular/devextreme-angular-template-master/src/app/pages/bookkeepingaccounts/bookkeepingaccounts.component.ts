@@ -104,10 +104,10 @@ export class BookkeepingAccountsComponent {
     alert("Form submitted successfully!");
   }
   items = [
-    { id: 1, description: 'Sales tax free' },
-    { id: 2, description: 'Sales Vat 25,5%' },
-    { id: 3, description: 'Sales Vat 14%' },
-    { id: 4, description: 'Sales Vat 10%' }
+    { id: 3000, description: 'Sales Vat 25,5%' },
+    { id: 3001, description: 'Sales Vat 14%' },
+    { id: 3002, description: 'Sales Vat 10%' },
+    { id: 3003, description: 'Sales tax free' }
   ];
   dropdownItems = [
     { id: 1, name: 'Any part of field' },

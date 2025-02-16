@@ -3,7 +3,7 @@
   <div class="form-section">
     <div class="content-block dx-card responsive-paddings">
       <dx-form id="form1"
-        [formData]="employee"
+        [formData]="bookkeep"
         labelLocation="top"
         [colCountByScreen]="colCountByScreen"
       >
@@ -66,6 +66,9 @@
         <button class="winpos-button winpos-default" (click)="onNew()">New</button>
         <button class="winpos-button winpos-default" (click)="onSearch()">Search</button>
         <button class="winpos-button winpos-success" (click)="onSave()">Save</button>
+        <div *ngIf="successMessage" class="toast-message">
+          {{ successMessage }}
+        </div>
         <button class="winpos-button winpos-danger" (click)="onUndo()">Undo</button>
         <button class="winpos-button winpos-danger" (click)="onDelete()">Delete</button>
       </div>

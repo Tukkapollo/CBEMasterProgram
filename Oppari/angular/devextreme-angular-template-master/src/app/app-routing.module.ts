@@ -7,6 +7,8 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { BookkeepingAccountsComponent } from './pages/bookkeepingaccounts/bookkeepingaccounts.component';
 import { TasksComponent } from './pages/tasks/tasks.component';
 import { DxDataGridModule, DxFormModule, DxButtonModule ,DxSelectBoxModule} from 'devextreme-angular';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {
@@ -56,7 +58,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: true }), DxDataGridModule, DxFormModule,DxButtonModule,DxSelectBoxModule],
+  imports: [RouterModule.forRoot(routes, { useHash: true }), DxDataGridModule, DxFormModule,DxButtonModule,DxSelectBoxModule,CommonModule,HttpClientModule],
   providers: [AuthGuardService],
   exports: [RouterModule],
   declarations: [

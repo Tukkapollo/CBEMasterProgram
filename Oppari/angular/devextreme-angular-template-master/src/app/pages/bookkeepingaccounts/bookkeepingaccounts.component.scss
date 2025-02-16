@@ -108,3 +108,21 @@ dxi-column {
   font-weight: bold;
   color: #1f4e79; /* Deep blue for titles */
 }
+.toast-message {
+  position: fixed;
+  top: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #4caf50;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  z-index: 1000;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.toast-message.ng-hide {
+  opacity: 0;
+}

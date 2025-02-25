@@ -1,0 +1,4 @@
+Added a section about technical debt
+Added a section about maintainability
+Improved a section that talked about Big Bang vs incremental
+Added a case study.. study
